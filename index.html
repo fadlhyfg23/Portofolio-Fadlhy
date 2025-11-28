@@ -1,647 +1,343 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio – Fadlhy Fadillah Ghiffary</title>
-  <meta name="description" content="Portfolio profesional Fadlhy Fadillah Ghiffary – D3 Teknik Telekomunikasi di Universitas Telkom | IT Support | Copywriter.">
-  <style>
-    :root {
-      --bg: #f3f4f6;
-      --card-bg: #ffffff;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --primary: #2563eb;
-      --primary-soft: #eff6ff;
-      --border: #e5e7eb;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fadlhy Fadillah Ghiffary - IT Support & Videotron Engineer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background-color: #ffffffdd;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0.75rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      font-weight: 600;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .brand-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      font-size: 0.9rem;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      padding-bottom: 0.1rem;
-      border-bottom: 1px solid transparent;
-    }
-
-    .nav-links a:hover {
-      color: var(--text-main);
-      border-color: var(--primary);
-    }
-
-    main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 1.5rem 1rem 3rem;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.2fr);
-      gap: 1.5rem;
-      align-items: flex-start;
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 0.75rem;
-      border: 1px solid var(--border);
-      padding: 1.25rem 1.4rem;
-    }
-
-    .card + .card {
-      margin-top: 1rem;
-    }
-
-    h1 {
-      font-size: 1.6rem;
-      margin-bottom: 0.25rem;
-    }
-
-    h2 {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-    }
-
-    h3 {
-      font-size: 1rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .subtitle {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .tagline {
-      font-size: 0.95rem;
-      color: var(--text-main);
-      margin-bottom: 0.75rem;
-    }
-
-    .muted {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-    }
-
-    .summary-list {
-      list-style: disc;
-      padding-left: 1.15rem;
-      font-size: 0.93rem;
-      color: var(--text-muted);
-      margin-top: 0.4rem;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.75rem;
-    }
-
-    .chip {
-      font-size: 0.8rem;
-      padding: 0.15rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background-color: #f9fafb;
-      color: var(--text-muted);
-    }
-
-    .section-title {
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-
-    .experience-item + .experience-item,
-    .edu-item + .edu-item {
-      margin-top: 0.75rem;
-      padding-top: 0.75rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .exp-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.25rem;
-    }
-
-    .exp-role {
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .exp-org {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .exp-time {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    ul {
-      padding-left: 1.1rem;
-      font-size: 0.92rem;
-    }
-
-    ul li + li {
-      margin-top: 0.2rem;
-    }
-
-    .skills-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .skills-list li::before {
-      content: "•";
-      margin-right: 0.4rem;
-      color: var(--primary);
-    }
-
-    .skills-list li {
-      padding-left: 0.1rem;
-      font-size: 0.92rem;
-      color: var(--text-muted);
-    }
-
-    .contact-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0.5rem;
-      font-size: 0.93rem;
-    }
-
-    .contact-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--text-muted);
-    }
-
-    .contact-value {
-      font-size: 0.95rem;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 0.15rem 0.5rem;
-      font-size: 0.78rem;
-      border-radius: 999px;
-      background-color: var(--primary-soft);
-      color: var(--primary);
-      margin-bottom: 0.4rem;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      background-color: #ffffff;
-    }
-
-    @media (max-width: 800px) {
-      .layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      header {
-        position: static;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      main {
-        padding-top: 1rem;
-      }
-    }
-  </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3b82f6', // Blue 500
+                        dark: '#0f172a',    // Slate 900
+                        card: '#1e293b',    // Slate 800
+                        accent: '#0ea5e9'   // Sky 500
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
 </head>
-<body>
-<header>
-  <div class="nav-container">
-    <div class="brand">
-      <div class="brand-avatar">FG</div>
-      <div>Fadlhy Fadillah Ghiffary</div>
-    </div>
-    <nav class="nav-links">
-      <a href="#profil">Profil</a>
-      <a href="#pengalaman">Pengalaman</a>
-      <a href="#pendidikan">Pendidikan</a>
-      <a href="#keahlian">Keahlian</a>
-      <a href="#sertifikasi">Sertifikasi</a>
-      <a href="#kontak">Kontak</a>
+<body class="bg-dark text-slate-300 font-sans antialiased selection:bg-primary selection:text-white">
+
+    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-white tracking-tight">Fadlhy<span class="text-primary">.FG</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Beranda</a>
+                        <a href="#about" class="hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Tentang</a>
+                        <a href="#experience" class="hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Pengalaman</a>
+                        <a href="#skills" class="hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Keahlian</a>
+                        <a href="#contact" class="bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition">Hubungi Saya</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white focus:outline-none">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-card border-b border-slate-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Beranda</a>
+                <a href="#about" class="block hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Tentang</a>
+                <a href="#experience" class="block hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Pengalaman</a>
+                <a href="#contact" class="block text-primary font-bold px-3 py-2 rounded-md text-base">Hubungi Saya</a>
+            </div>
+        </div>
     </nav>
-  </div>
-</header>
 
-<main>
-  <div class="layout">
-    <!-- Kolom kiri -->
-    <div>
-      <!-- PROFIL -->
-      <section id="profil" class="card">
-        <h1>Fadlhy Fadillah Ghiffary</h1>
-        <div class="subtitle">D3 Teknik Telekomunikasi di Universitas Telkom | IT Support | Copywriter</div>
-        <p class="tagline">
-          Lulusan D3 Teknik Telekomunikasi dengan pengalaman praktis di bidang IT support, instalasi CCTV,
-          jaringan komputer, dan sistem display. Aktif dalam organisasi kampus dengan peran koordinasi
-          dan manajemen dokumen, serta memiliki ketertarikan kuat pada teknologi jaringan dan pengembangan
-          keterampilan teknis berkelanjutan.
-        </p>
-        <p class="muted">
-          Berpengalaman menangani pemeliharaan dan perbaikan videotron, instalasi sistem keamanan dan
-          display, hingga produksi videotron dari tahap awal sampai siap digunakan. Terbiasa bekerja
-          secara terstruktur, terdokumentasi, dan berorientasi pada hasil yang stabil serta dapat diandalkan.
-        </p>
-        <ul class="summary-list">
-          <li>Pengalaman di bidang IT support, videotron, CCTV, dan jaringan komputer.</li>
-          <li>Pengalaman content writing dan pengelolaan media sosial di lembaga pendidikan dan komunitas.</li>
-          <li>Aktif di organisasi kemahasiswaan dengan fokus koordinasi, riset, dan pengembangan anggota.</li>
-        </ul>
-        <div class="chips">
-          <span class="chip">IT Support</span>
-          <span class="chip">Videotron &amp; Display</span>
-          <span class="chip">Telekomunikasi</span>
-          <span class="chip">CCTV &amp; IP CCTV</span>
-          <span class="chip">Copywriting &amp; Content</span>
-          <span class="chip">Manajemen Dokumen</span>
+    <section id="home" class="pt-32 pb-20 lg:pt-48 lg:pb-32 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/20 rounded-full blur-[100px] -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center px-3 py-1 rounded-full border border-slate-700 bg-slate-800/50 mb-6">
+                <span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                <span class="text-xs font-medium text-slate-300">Open to Work</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                IT Support & <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Videotron Engineer</span>
+            </h1>
+            
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400 mb-10">
+                Spesialisasi dalam pemeliharaan Videotron, instalasi CCTV, dan infrastruktur jaringan. 
+                Lulusan Teknik Telekomunikasi yang siap mengamankan aset digital dan visual Anda.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#experience" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-blue-600 md:py-4 md:text-lg transition">
+                    Lihat Portfolio
+                    <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                </a>
+                <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 border border-slate-600 text-base font-medium rounded-md text-slate-300 bg-transparent hover:bg-slate-800 md:py-4 md:text-lg transition">
+                    Hubungi Saya
+                </a>
+            </div>
+
+            <div class="mt-20 grid grid-cols-2 gap-8 md:grid-cols-4 border-t border-slate-800 pt-10">
+                <div>
+                    <div class="text-3xl font-bold text-white">IP CCTV</div>
+                    <div class="text-sm text-slate-500 mt-1">Installation & Config</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-white">Videotron</div>
+                    <div class="text-sm text-slate-500 mt-1">Maintenance & Repair</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-white">Network</div>
+                    <div class="text-sm text-slate-500 mt-1">CCNA & CyberOps</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-white">RAN</div>
+                    <div class="text-sm text-slate-500 mt-1">Site Survey Experience</div>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <!-- PENGALAMAN -->
-      <section id="pengalaman" class="card">
-        <h2>Pengalaman Kerja</h2>
+    <section id="about" class="py-20 bg-card border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary to-purple-600 rounded-2xl transform rotate-3 opacity-20"></div>
+                    <div class="relative rounded-2xl bg-slate-700 h-96 w-full flex items-center justify-center overflow-hidden border border-slate-600">
+                        <i data-lucide="user" class="w-32 h-32 text-slate-500"></i>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">Tentang Fadlhy</h2>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Saya adalah <strong>Fadlhy Fadillah Ghiffary</strong>, lulusan D3 Teknik Telekomunikasi dari <strong>Universitas Telkom</strong> dengan IPK tinggi. Saat ini berbasis di Tangerang Selatan/Jakarta.
+                    </p>
+                    <p class="text-slate-400 mb-8 leading-relaxed">
+                        Berpengalaman di <strong>PT. Matahari Teknologi Jaya</strong> dalam menangani kerusakan videotron dan instalasi sistem keamanan. Saya memiliki kombinasi skill unik: teknis lapangan (hardware/jaringan) dan kemampuan administratif (manajemen dokumen/copywriting).
+                    </p>
 
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Information Technology Support Engineer</div>
-              <div class="exp-org">PT. Matahari Teknologi Jaya</div>
+                    <div class="space-y-4">
+                        <h4 class="text-white font-semibold border-b border-slate-700 pb-2">Sertifikasi & Lisensi:</h4>
+                        <ul class="grid grid-cols-1 gap-3">
+                            <li class="flex items-center bg-dark p-3 rounded-lg border border-slate-700">
+                                <i data-lucide="award" class="w-5 h-5 text-yellow-500 mr-3"></i>
+                                <span class="text-slate-300 text-sm">SKEMA KKNI LEVEL III - Jaringan Komputer</span>
+                            </li>
+                            <li class="flex items-center bg-dark p-3 rounded-lg border border-slate-700">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-green-500 mr-3"></i>
+                                <span class="text-slate-300 text-sm">CCNA: Enterprise Networking & Security</span>
+                            </li>
+                            <li class="flex items-center bg-dark p-3 rounded-lg border border-slate-700">
+                                <i data-lucide="lock" class="w-5 h-5 text-blue-500 mr-3"></i>
+                                <span class="text-slate-300 text-sm">Cisco CyberOps Associate</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="exp-time">Juni 2024 – Sekarang · Jakarta Pusat, Jakarta Raya</div>
-          </div>
-          <ul>
-            <li>Melaksanakan perbaikan dan pemeliharaan videotron untuk menjaga performa sistem tetap optimal.</li>
-            <li>Menganalisis dan mendiagnosa kerusakan teknis pada videotron, serta memberikan solusi yang tepat dan efisien.</li>
-            <li>Melakukan instalasi sistem keamanan dan display seperti CCTV dan videowall, termasuk instalasi perangkat lunak dan perangkat keras terkait.</li>
-            <li>Terlibat dalam proses produksi videotron dari tahap awal hingga siap digunakan.</li>
-          </ul>
         </div>
+    </section>
 
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Radio Access Network Surveyor</div>
-              <div class="exp-org">PT. Media Telematika Jaya</div>
+    <section id="experience" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-primary font-semibold tracking-wider uppercase text-sm">Rekam Jejak</span>
+                <h2 class="text-3xl font-bold text-white mt-2">Pengalaman Profesional</h2>
             </div>
-            <div class="exp-time">April 2025 – Juni 2025 · Jawa Tengah, Indonesia</div>
-          </div>
-          <ul>
-            <li>Berkontribusi sebagai RAN Surveyor dalam proyek integrasi jaringan XLSmart antara XL Axiata dan Smartfren.</li>
-            <li>Melakukan survei lapangan (site survey) dan kunjungan ke berbagai site/tower telekomunikasi.</li>
-            <li>Mengumpulkan data untuk mendukung implementasi MOCN (Multi-Operator Core Network) dan drop site XLSmart.</li>
-          </ul>
+
+            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
+                
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 group-[.is-active]:bg-primary text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i data-lucide="monitor"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-700 bg-card hover:border-primary transition">
+                        <div class="flex justify-between items-center mb-1">
+                            <h3 class="font-bold text-white">IT Support Engineer</h3>
+                            <span class="text-xs text-primary bg-primary/10 px-2 py-1 rounded">Jun 2024 - Sekarang</span>
+                        </div>
+                        <div class="text-sm text-slate-500 mb-4">PT. Matahari Teknologi Jaya</div>
+                        <ul class="text-slate-400 text-sm list-disc list-inside space-y-1">
+                            <li>Maintenance & perbaikan videotron (diagnosa kerusakan).</li>
+                            <li>Instalasi CCTV (IP Camera) dan Videowall system.</li>
+                            <li>Manajemen produksi videotron dari awal hingga siap pakai.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 text-slate-300 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i data-lucide="tower-control"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-700 bg-card hover:border-primary transition">
+                        <div class="flex justify-between items-center mb-1">
+                            <h3 class="font-bold text-white">RAN Surveyor</h3>
+                            <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Apr - Jun 2024</span>
+                        </div>
+                        <div class="text-sm text-slate-500 mb-4">PT. Media Telematika Jaya</div>
+                        <ul class="text-slate-400 text-sm list-disc list-inside space-y-1">
+                            <li>Site survey untuk integrasi jaringan XLSmart (MOCN).</li>
+                            <li>Kunjungan lapangan ke tower telekomunikasi target.</li>
+                            <li>Validasi data teknis untuk implementasi Drop Site.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 text-slate-300 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i data-lucide="pen-tool"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-700 bg-card hover:border-primary transition">
+                        <div class="flex justify-between items-center mb-1">
+                            <h3 class="font-bold text-white">Content Writer</h3>
+                            <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Jan - Apr 2024</span>
+                        </div>
+                        <div class="text-sm text-slate-500 mb-4">Syariart School</div>
+                        <ul class="text-slate-400 text-sm list-disc list-inside space-y-1">
+                            <li>Membuat content planner & brief copywriting.</li>
+                            <li>Manajemen media sosial (IG, TikTok, FB).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 text-slate-300 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i data-lucide="book-open"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-700 bg-card hover:border-primary transition">
+                        <div class="flex justify-between items-center mb-1">
+                            <h3 class="font-bold text-white">Asisten Praktikum Keamanan Jaringan</h3>
+                            <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Okt 2023 - Jan 2024</span>
+                        </div>
+                        <div class="text-sm text-slate-500 mb-4">Universitas Telkom</div>
+                        <ul class="text-slate-400 text-sm list-disc list-inside space-y-1">
+                            <li>Mengajar footprinting, scanning, & digital forensik.</li>
+                            <li>Evaluasi tugas mahasiswa (Metasploit usage).</li>
+                            <li>Tingkat kelulusan praktikan mencapai 86%.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Content Writer</div>
-              <div class="exp-org">Syariart School</div>
+    <section id="skills" class="py-20 bg-dark border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center">Keahlian & Kompetensi</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="p-6 bg-card rounded-xl border border-slate-700">
+                    <h4 class="text-primary font-bold uppercase text-xs mb-4 tracking-wider">Network & Security</h4>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li>CCTV & IP CCTV</li>
+                        <li>Network Troubleshooting</li>
+                        <li>Site Survey (RAN)</li>
+                        <li>CyberOps Fundamentals</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-card rounded-xl border border-slate-700">
+                    <h4 class="text-primary font-bold uppercase text-xs mb-4 tracking-wider">Hardware & Display</h4>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li>Videotron Maintenance</li>
+                        <li>Video Wall Installation</li>
+                        <li>Diagnosa Modul LED</li>
+                        <li>Computer Hardware</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-card rounded-xl border border-slate-700">
+                    <h4 class="text-primary font-bold uppercase text-xs mb-4 tracking-wider">Software & Tools</h4>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li>Metasploit (Basic)</li>
+                        <li>Microsoft Office</li>
+                        <li>Video Editing Tools</li>
+                        <li>Social Media Mgmt</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-card rounded-xl border border-slate-700">
+                    <h4 class="text-primary font-bold uppercase text-xs mb-4 tracking-wider">Soft Skills</h4>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li>Document Management</li>
+                        <li>Team Coordination</li>
+                        <li>Copywriting</li>
+                        <li>Adaptive Learning</li>
+                    </ul>
+                </div>
             </div>
-            <div class="exp-time">Januari 2024 – April 2024 · Tangerang Selatan, Banten</div>
-          </div>
-          <ul>
-            <li>Menyusun content planner untuk kebutuhan media sosial.</li>
-            <li>Membuat brief dan copy untuk konten sebelum masuk tahap desain.</li>
-            <li>Mengelola media sosial (Instagram, TikTok, dan Facebook) untuk menjaga konsistensi pesan dan aktivitas.</li>
-          </ul>
         </div>
+    </section>
 
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Asisten Praktikum Keamanan Jaringan</div>
-              <div class="exp-org">Universitas Telkom</div>
+    <section id="contact" class="py-20 bg-card">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">Hubungi Saya</h2>
+            <p class="text-slate-400 mb-10 text-lg">
+                Saya terbuka untuk diskusi mengenai proyek Videotron, instalasi Jaringan/CCTV, maupun peran IT Support Full-time.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                <a href="mailto:fadlhyfg@gmail.com" class="flex items-center p-4 bg-dark rounded-lg border border-slate-700 hover:border-primary transition group">
+                    <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center mr-4 group-hover:bg-primary group-hover:text-white transition">
+                        <i data-lucide="mail"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 uppercase">Email</p>
+                        <p class="text-white font-medium">fadlhyfg@gmail.com</p>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/fadlhyfg" target="_blank" class="flex items-center p-4 bg-dark rounded-lg border border-slate-700 hover:border-blue-700 transition group">
+                    <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-700 group-hover:text-white transition">
+                        <i data-lucide="linkedin"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 uppercase">LinkedIn</p>
+                        <p class="text-white font-medium">linkedin.com/in/fadlhyfg</p>
+                    </div>
+                </a>
             </div>
-            <div class="exp-time">Oktober 2023 – Januari 2024 · Kalideres, Jakarta Raya</div>
-          </div>
-          <ul>
-            <li>Mendampingi dosen dalam mempersiapkan dan melaksanakan praktikum Keamanan Jaringan.</li>
-            <li>Membimbing mahasiswa memahami konsep keamanan jaringan seperti scanning, footprinting, digital forensik, dan penggunaan Metasploit.</li>
-            <li>Mengevaluasi tugas dan laporan praktikum mahasiswa.</li>
-            <li>Berperan dalam menjaga tingkat kelulusan praktikum sebesar 86% dan kehadiran 100%.</li>
-          </ul>
+            
+            <div class="mt-8 text-slate-500 text-sm">
+                <i data-lucide="map-pin" class="inline w-4 h-4 mr-1"></i> Tangerang Selatan, Banten, Indonesia
+            </div>
         </div>
+    </section>
 
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Sekretaris · HME-Tel TUKJ</div>
-              <div class="exp-org">Himpunan Mahasiswa Elektro – Telekomunikasi Telkom University Kampus Jakarta</div>
-            </div>
-            <div class="exp-time">September 2022 – Desember 2023 · Kalideres, Jakarta Raya</div>
-          </div>
-          <ul>
-            <li>Mengelola data keanggotaan dan dokumen organisasi secara rapi sehingga mudah diakses pengurus.</li>
-            <li>Mengatur dan mengoordinasikan pertemuan serta acara organisasi.</li>
-            <li>Menjadi penghubung komunikasi antara anggota dan badan pengurus himpunan.</li>
-          </ul>
+    <footer class="bg-dark py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-600 text-sm">
+                &copy; 2024 Fadlhy Fadillah Ghiffary. <br>
+                <span class="text-xs">Based on CV Data. Built with Tailwind CSS.</span>
+            </p>
         </div>
+    </footer>
 
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Research and Development · HME-Tel TUKJ</div>
-              <div class="exp-org">Himpunan Mahasiswa Elektro – Telekomunikasi Telkom University Kampus Jakarta</div>
-            </div>
-            <div class="exp-time">Januari 2021 – September 2022 · Kalideres, Jakarta Raya</div>
-          </div>
-          <ul>
-            <li>Mendukung anggota himpunan dalam mencari dan melakukan penelitian, perlombaan, serta pengembangan minat dan bakat.</li>
-            <li>Membantu pengembangan ide dan konsep kreatif untuk program kerja himpunan.</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Data Entry Assistant Tim Assurance</div>
-              <div class="exp-org">PT. Telkom Akses</div>
-            </div>
-            <div class="exp-time">Agustus 2022 – November 2022 · STO Lengkong</div>
-          </div>
-          <ul>
-            <li>Memvalidasi data lebih dari 700 pelanggan IndiHome.</li>
-            <li>Melakukan input lebih dari 50 laporan kunjungan teknisi lapangan.</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Sekretaris Jenderal (Wakil Ketua)</div>
-              <div class="exp-org">Ikatan Mahasiswa Muslim Muslimah ITTJ</div>
-            </div>
-            <div class="exp-time">September 2021 – September 2022 · Kalideres, Jakarta Raya</div>
-          </div>
-          <ul>
-            <li>Mendampingi Ketua dalam menjalankan tugas dan tanggung jawab organisasi.</li>
-            <li>Menyusun proposal kegiatan dan timeline secara terstruktur.</li>
-            <li>Berperan dalam pembuatan desain dan caption untuk konten dakwah di media sosial.</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Computer Lab Assistant</div>
-              <div class="exp-org">SMK Mega Bangsa</div>
-            </div>
-            <div class="exp-time">September 2017 – Desember 2019 · Tangerang Selatan, Banten</div>
-          </div>
-          <ul>
-            <li>Memelihara perangkat keras dan lunak komputer untuk menjaga performa lab komputer.</li>
-            <li>Membangun dan menjaga jaringan lokal yang mendukung kegiatan belajar mengajar.</li>
-            <li>Mempersiapkan lab komputer untuk pelaksanaan Ujian Nasional.</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Ketua OSIS</div>
-              <div class="exp-org">SMK Mega Bangsa</div>
-            </div>
-            <div class="exp-time">September 2018 – Agustus 2019 · Tangerang Selatan, Banten</div>
-          </div>
-          <ul>
-            <li>Memimpin dan mengoordinasikan kegiatan seluruh anggota OSIS.</li>
-            <li>Menyusun dan menjalankan program kerja sesuai visi dan misi sekolah.</li>
-            <li>Berkolaborasi dengan guru, staf, dan siswa untuk kelancaran berbagai kegiatan sekolah.</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Admin Security and Safety Intern</div>
-              <div class="exp-org">Telkom Indonesia</div>
-            </div>
-            <div class="exp-time">Januari 2019 – Februari 2019 · Tangerang Selatan, Banten</div>
-          </div>
-          <ul>
-            <li>Melaksanakan inspeksi ke 10 Sentral Telepon Otomat (STO) dan menyusun laporan.</li>
-            <li>Melakukan input data laporan harian personel Security and Safety.</li>
-            <li>Menyusun surat izin untuk akses atau peminjaman properti PT Telkom Indonesia.</li>
-          </ul>
-        </div>
-
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Social Media Admin</div>
-              <div class="exp-org">Klikshowtime.id</div>
-            </div>
-            <div class="exp-time">September 2017 – September 2018</div>
-          </div>
-          <ul>
-            <li>Mengedit video dan foto bertema Tokusatsu.</li>
-            <li>Memposting informasi dan konten Tokusatsu ke media sosial.</li>
-            <li>Menjawab komentar dan pesan di platform media sosial.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- PENDIDIKAN -->
-      <section id="pendidikan" class="card">
-        <h2>Pendidikan</h2>
-
-        <div class="edu-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Ahli Madya Teknik, Teknik Telekomunikasi</div>
-              <div class="exp-org">Universitas Telkom</div>
-            </div>
-            <div class="exp-time">Mei 2020 – November 2023</div>
-          </div>
-          <p class="muted" style="margin-top: 0.35rem;">
-            Program D3 Teknik Telekomunikasi dengan fokus pada jaringan, sistem komunikasi, dan pengelolaan perangkat pendukung.
-          </p>
-        </div>
-
-        <div class="edu-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Teknik Komputer dan Jaringan</div>
-              <div class="exp-org">SMK Mega Bangsa</div>
-            </div>
-            <div class="exp-time">Agustus 2017 – Mei 2020</div>
-          </div>
-          <p class="muted" style="margin-top: 0.35rem;">
-            Pendidikan vokasi dengan dasar kuat di bidang komputer, jaringan, dan pengelolaan infrastruktur IT sekolah.
-          </p>
-        </div>
-      </section>
-    </div>
-
-    <!-- Kolom kanan -->
-    <div>
-      <!-- KEAHLIAN -->
-      <section id="keahlian" class="card">
-        <h2>Keahlian</h2>
-        <div class="section-title">Keahlian Utama</div>
-        <ul class="skills-list">
-          <li>Telecommunications</li>
-          <li>Closed-Circuit Television (CCTV)</li>
-          <li>IP CCTV</li>
-        </ul>
-
-        <div class="section-title" style="margin-top: 0.75rem;">Fokus &amp; Bidang Pendukung</div>
-        <ul class="skills-list">
-          <li>IT Support dan pemeliharaan perangkat kerja.</li>
-          <li>Instalasi dan pemeliharaan videotron serta sistem display.</li>
-          <li>Instalasi dan konfigurasi sistem CCTV dan IP CCTV.</li>
-          <li>Pengelolaan data, input laporan, dan administrasi teknis.</li>
-          <li>Content writing dan pengelolaan media sosial.</li>
-          <li>Koordinasi organisasi dan manajemen dokumen.</li>
-        </ul>
-      </section>
-
-      <!-- SERTIFIKASI & PENGHARGAAN -->
-      <section id="sertifikasi" class="card">
-        <h2>Sertifikasi &amp; Penghargaan</h2>
-        <div class="section-title">Sertifikasi</div>
-        <ul class="skills-list">
-          <li>SKEMA KKNI Level III – Pemeliharaan Jaringan Komputer.</li>
-          <li>English Proficiency Test – Home Edition.</li>
-          <li>CCNA: Introduction to Networks.</li>
-          <li>CyberOps Associate.</li>
-          <li>CCNA: Enterprise Networking, Security, and Automation.</li>
-        </ul>
-
-        <div class="section-title" style="margin-top: 0.75rem;">Penghargaan</div>
-        <ul class="skills-list">
-          <li>Awardee Intake Scholarship oleh Rumah Kepemimpinan.</li>
-        </ul>
-      </section>
-
-      <!-- KONTAK -->
-      <section id="kontak" class="card">
-        <h2>Kontak</h2>
-        <p class="muted" style="margin-bottom: 0.75rem;">
-          Terbuka untuk kesempatan kerja, kolaborasi proyek, maupun diskusi profesional
-          terkait IT support, videotron, jaringan, dan pengembangan konten.
-        </p>
-        <div class="contact-row">
-          <div>
-            <div class="contact-label">Lokasi</div>
-            <div class="contact-value">
-              Kota Tangerang &amp; Tangerang Selatan, Banten, Indonesia
-            </div>
-          </div>
-          <div>
-            <div class="contact-label">Email</div>
-            <div class="contact-value">
-              <!-- Data dari LinkedIn -->
-              fadlhyfg@gmail.com
-            </div>
-          </div>
-          <div>
-            <div class="contact-label">LinkedIn</div>
-            <div class="contact-value">
-              <a href="https://www.linkedin.com/in/fadlhyfg" target="_blank" rel="noopener">
-                linkedin.com/in/fadlhyfg
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
-</main>
-
-<footer>
-  &copy; <span id="year"></span> Fadlhy Fadillah Ghiffary &mdash; Portfolio Profesional.
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+    <script>
+        lucide.createIcons();
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
