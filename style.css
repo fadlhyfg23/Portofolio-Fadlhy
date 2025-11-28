@@ -1,0 +1,33 @@
+/* Custom Scrollbar (Biar terlihat technical & modern) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a; /* Sesuai warna bg-dark */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155; /* Warna slate-600 */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #475569; /* Warna slate-500 saat di-hover */
+}
+
+/* Base Styles */
+html {
+    scroll-behavior: smooth; /* Animasi scroll halus saat klik menu */
+}
+
+body {
+    /* Mencegah highlight biru default saat tap di mobile */
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom Selection Color */
+::selection {
+    background-color: #3b82f6; /* Warna primary */
+    color: white;
+}
