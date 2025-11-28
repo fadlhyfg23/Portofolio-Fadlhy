@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fadlhy Fadillah Ghiffary - IT Support & Videotron Engineer</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -28,16 +32,10 @@
             }
         }
     </script>
-    <style>
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
-    </style>
 </head>
 <body class="bg-dark text-slate-300 font-sans antialiased selection:bg-primary selection:text-white">
 
-    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-slate-800">
+    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-slate-800 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
@@ -53,7 +51,7 @@
                     </div>
                 </div>
                 <div class="-mr-2 flex md:hidden">
-                    <button onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white focus:outline-none">
+                    <button onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white focus:outline-none hover:bg-slate-800 transition">
                         <i data-lucide="menu"></i>
                     </button>
                 </div>
@@ -64,6 +62,7 @@
                 <a href="#home" class="block hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Beranda</a>
                 <a href="#about" class="block hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Tentang</a>
                 <a href="#experience" class="block hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Pengalaman</a>
+                <a href="#skills" class="block hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Keahlian</a>
                 <a href="#contact" class="block text-primary font-bold px-3 py-2 rounded-md text-base">Hubungi Saya</a>
             </div>
         </div>
@@ -89,7 +88,7 @@
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#experience" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-blue-600 md:py-4 md:text-lg transition">
+                <a href="#experience" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-blue-600 md:py-4 md:text-lg transition shadow-lg shadow-blue-500/20">
                     Lihat Portfolio
                     <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
                 </a>
@@ -124,7 +123,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="relative">
                     <div class="absolute inset-0 bg-gradient-to-tr from-primary to-purple-600 rounded-2xl transform rotate-3 opacity-20"></div>
-                    <div class="relative rounded-2xl bg-slate-700 h-96 w-full flex items-center justify-center overflow-hidden border border-slate-600">
+                    <div class="relative rounded-2xl bg-slate-700 h-96 w-full flex items-center justify-center overflow-hidden border border-slate-600 shadow-2xl">
                         <i data-lucide="user" class="w-32 h-32 text-slate-500"></i>
                     </div>
                 </div>
@@ -132,7 +131,7 @@
                 <div>
                     <h2 class="text-3xl font-bold text-white mb-6">Tentang Fadlhy</h2>
                     <p class="text-slate-400 mb-6 leading-relaxed">
-                        Saya adalah <strong>Fadlhy Fadillah Ghiffary</strong>, lulusan D3 Teknik Telekomunikasi dari <strong>Universitas Telkom</strong> dengan IPK tinggi. Saat ini berbasis di Tangerang Selatan/Jakarta.
+                        Saya adalah <strong>Fadlhy Fadillah Ghiffary</strong>, lulusan D3 Teknik Telekomunikasi dari <strong>Universitas Telkom</strong>. Saat ini berbasis di Tangerang Selatan/Jakarta.
                     </p>
                     <p class="text-slate-400 mb-8 leading-relaxed">
                         Berpengalaman di <strong>PT. Matahari Teknologi Jaya</strong> dalam menangani kerusakan videotron dan instalasi sistem keamanan. Saya memiliki kombinasi skill unik: teknis lapangan (hardware/jaringan) dan kemampuan administratif (manajemen dokumen/copywriting).
@@ -141,15 +140,15 @@
                     <div class="space-y-4">
                         <h4 class="text-white font-semibold border-b border-slate-700 pb-2">Sertifikasi & Lisensi:</h4>
                         <ul class="grid grid-cols-1 gap-3">
-                            <li class="flex items-center bg-dark p-3 rounded-lg border border-slate-700">
+                            <li class="flex items-center bg-dark p-3 rounded-lg border border-slate-700 hover:border-slate-500 transition">
                                 <i data-lucide="award" class="w-5 h-5 text-yellow-500 mr-3"></i>
                                 <span class="text-slate-300 text-sm">SKEMA KKNI LEVEL III - Jaringan Komputer</span>
                             </li>
-                            <li class="flex items-center bg-dark p-3 rounded-lg border border-slate-700">
+                            <li class="flex items-center bg-dark p-3 rounded-lg border border-slate-700 hover:border-slate-500 transition">
                                 <i data-lucide="shield-check" class="w-5 h-5 text-green-500 mr-3"></i>
                                 <span class="text-slate-300 text-sm">CCNA: Enterprise Networking & Security</span>
                             </li>
-                            <li class="flex items-center bg-dark p-3 rounded-lg border border-slate-700">
+                            <li class="flex items-center bg-dark p-3 rounded-lg border border-slate-700 hover:border-slate-500 transition">
                                 <i data-lucide="lock" class="w-5 h-5 text-blue-500 mr-3"></i>
                                 <span class="text-slate-300 text-sm">Cisco CyberOps Associate</span>
                             </li>
@@ -173,16 +172,16 @@
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 group-[.is-active]:bg-primary text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                         <i data-lucide="monitor"></i>
                     </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-700 bg-card hover:border-primary transition">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-700 bg-card hover:border-primary transition duration-300 hover:shadow-lg hover:shadow-primary/5">
                         <div class="flex justify-between items-center mb-1">
                             <h3 class="font-bold text-white">IT Support Engineer</h3>
                             <span class="text-xs text-primary bg-primary/10 px-2 py-1 rounded">Jun 2024 - Sekarang</span>
                         </div>
                         <div class="text-sm text-slate-500 mb-4">PT. Matahari Teknologi Jaya</div>
                         <ul class="text-slate-400 text-sm list-disc list-inside space-y-1">
-                            <li>Maintenance & perbaikan videotron (diagnosa kerusakan).</li>
-                            <li>Instalasi CCTV (IP Camera) dan Videowall system.</li>
-                            <li>Manajemen produksi videotron dari awal hingga siap pakai.</li>
+                            <li>Maintenance & perbaikan videotron.</li>
+                            <li>Instalasi CCTV (IP Camera) dan Videowall.</li>
+                            <li>Manajemen produksi videotron.</li>
                         </ul>
                     </div>
                 </div>
@@ -191,16 +190,15 @@
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 text-slate-300 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                         <i data-lucide="tower-control"></i>
                     </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-700 bg-card hover:border-primary transition">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-700 bg-card hover:border-primary transition duration-300 hover:shadow-lg hover:shadow-primary/5">
                         <div class="flex justify-between items-center mb-1">
                             <h3 class="font-bold text-white">RAN Surveyor</h3>
                             <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Apr - Jun 2024</span>
                         </div>
                         <div class="text-sm text-slate-500 mb-4">PT. Media Telematika Jaya</div>
                         <ul class="text-slate-400 text-sm list-disc list-inside space-y-1">
-                            <li>Site survey untuk integrasi jaringan XLSmart (MOCN).</li>
-                            <li>Kunjungan lapangan ke tower telekomunikasi target.</li>
-                            <li>Validasi data teknis untuk implementasi Drop Site.</li>
+                            <li>Site survey integrasi jaringan XLSmart (MOCN).</li>
+                            <li>Validasi data teknis site tower.</li>
                         </ul>
                     </div>
                 </div>
@@ -209,15 +207,15 @@
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 text-slate-300 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                         <i data-lucide="pen-tool"></i>
                     </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-700 bg-card hover:border-primary transition">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-700 bg-card hover:border-primary transition duration-300 hover:shadow-lg hover:shadow-primary/5">
                         <div class="flex justify-between items-center mb-1">
                             <h3 class="font-bold text-white">Content Writer</h3>
                             <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Jan - Apr 2024</span>
                         </div>
                         <div class="text-sm text-slate-500 mb-4">Syariart School</div>
                         <ul class="text-slate-400 text-sm list-disc list-inside space-y-1">
-                            <li>Membuat content planner & brief copywriting.</li>
-                            <li>Manajemen media sosial (IG, TikTok, FB).</li>
+                            <li>Membuat content planner & copywriting.</li>
+                            <li>Manajemen media sosial.</li>
                         </ul>
                     </div>
                 </div>
@@ -226,7 +224,7 @@
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-slate-800 text-slate-300 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                         <i data-lucide="book-open"></i>
                     </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-700 bg-card hover:border-primary transition">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-xl border border-slate-700 bg-card hover:border-primary transition duration-300 hover:shadow-lg hover:shadow-primary/5">
                         <div class="flex justify-between items-center mb-1">
                             <h3 class="font-bold text-white">Asisten Praktikum Keamanan Jaringan</h3>
                             <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Okt 2023 - Jan 2024</span>
@@ -234,8 +232,7 @@
                         <div class="text-sm text-slate-500 mb-4">Universitas Telkom</div>
                         <ul class="text-slate-400 text-sm list-disc list-inside space-y-1">
                             <li>Mengajar footprinting, scanning, & digital forensik.</li>
-                            <li>Evaluasi tugas mahasiswa (Metasploit usage).</li>
-                            <li>Tingkat kelulusan praktikan mencapai 86%.</li>
+                            <li>Tingkat kelulusan praktikan 86%.</li>
                         </ul>
                     </div>
                 </div>
@@ -249,8 +246,8 @@
             <h2 class="text-2xl font-bold text-white mb-10 text-center">Keahlian & Kompetensi</h2>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="p-6 bg-card rounded-xl border border-slate-700">
-                    <h4 class="text-primary font-bold uppercase text-xs mb-4 tracking-wider">Network & Security</h4>
+                <div class="p-6 bg-card rounded-xl border border-slate-700 hover:border-primary transition group">
+                    <h4 class="text-primary font-bold uppercase text-xs mb-4 tracking-wider group-hover:text-white transition">Network & Security</h4>
                     <ul class="space-y-2 text-sm text-slate-300">
                         <li>CCTV & IP CCTV</li>
                         <li>Network Troubleshooting</li>
@@ -258,8 +255,8 @@
                         <li>CyberOps Fundamentals</li>
                     </ul>
                 </div>
-                <div class="p-6 bg-card rounded-xl border border-slate-700">
-                    <h4 class="text-primary font-bold uppercase text-xs mb-4 tracking-wider">Hardware & Display</h4>
+                <div class="p-6 bg-card rounded-xl border border-slate-700 hover:border-primary transition group">
+                    <h4 class="text-primary font-bold uppercase text-xs mb-4 tracking-wider group-hover:text-white transition">Hardware & Display</h4>
                     <ul class="space-y-2 text-sm text-slate-300">
                         <li>Videotron Maintenance</li>
                         <li>Video Wall Installation</li>
@@ -267,8 +264,8 @@
                         <li>Computer Hardware</li>
                     </ul>
                 </div>
-                <div class="p-6 bg-card rounded-xl border border-slate-700">
-                    <h4 class="text-primary font-bold uppercase text-xs mb-4 tracking-wider">Software & Tools</h4>
+                <div class="p-6 bg-card rounded-xl border border-slate-700 hover:border-primary transition group">
+                    <h4 class="text-primary font-bold uppercase text-xs mb-4 tracking-wider group-hover:text-white transition">Software & Tools</h4>
                     <ul class="space-y-2 text-sm text-slate-300">
                         <li>Metasploit (Basic)</li>
                         <li>Microsoft Office</li>
@@ -276,8 +273,8 @@
                         <li>Social Media Mgmt</li>
                     </ul>
                 </div>
-                <div class="p-6 bg-card rounded-xl border border-slate-700">
-                    <h4 class="text-primary font-bold uppercase text-xs mb-4 tracking-wider">Soft Skills</h4>
+                <div class="p-6 bg-card rounded-xl border border-slate-700 hover:border-primary transition group">
+                    <h4 class="text-primary font-bold uppercase text-xs mb-4 tracking-wider group-hover:text-white transition">Soft Skills</h4>
                     <ul class="space-y-2 text-sm text-slate-300">
                         <li>Document Management</li>
                         <li>Team Coordination</li>
